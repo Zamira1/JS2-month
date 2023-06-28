@@ -1,35 +1,3 @@
-const btnCheck = document.querySelector("#check")
-
-function validate () {
-    const email = document.querySelector("#email")
-    const password = document.querySelector("#password")
-    const password_repeat = document.querySelector("#password_repeat")
-
-    const regExp_email = /^[a-z0-9._%+-]{4,16}@gmail\.com$/i
-    const regExp_password = /^[A-Z][a-z0-9]{4,16}\d$/
-
-    if (!regExp_email.test(email.value)) {
-        console.log('false')
-        return
-    }
-    else if (!regExp_password.test(password.value)) {
-        console.log('false')
-        return
-    }
-    else if (password.value !== password_repeat.value) {
-        console.log('false')
-        return;
-    }
-
-    console.log('true')
-}
-
-btnCheck.onclick = () => {
-    validate()
-}
-
-// homework 2
-
 const parentBlock = document.querySelector(".parentBlock")
 const child = document.querySelector(".child")
 
@@ -43,7 +11,21 @@ function recurs () {
         child.style.left = `${positionX}px`
         setTimeout(() => {
             recurs()
-        }, 10)
+        }, 65)
     }
 }
 recurs()
+
+let num = 0;
+
+    setTimeout(function (){
+    setInterval(function (){
+        if(num < 30){
+            num++
+            document.getElementById('num').innerText = num
+        }else{
+            document.getElementById('num').innerText = `Вы дошли до ${num}`
+            clearInterval()
+        }
+    }, 1000)
+}, 1000)
